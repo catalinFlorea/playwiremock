@@ -1,10 +1,12 @@
 package com.playwiremock.customer.model;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Account {
@@ -23,6 +25,9 @@ public class Account {
 	private AccountType type;
 
 	private float balance;
+
+	@OneToMany
+	private List<Transaction> transactions;
 
 	public Account() {
 	}
@@ -93,5 +98,15 @@ public class Account {
 	public void setBalance(float balance) {
 		this.balance = balance;
 	}
+
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
+	
+	
 
 }

@@ -48,6 +48,46 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
+## Exposed endpoints
+Done
+http://localhost:8081/accounts/v1/getAccountsForUser?username=? - Get Accounts for username
+http://localhost:8081/accounts/v1/syncAccounts - Only for TEST to fill DB with provider accounts
+http://localhost:8081/accounts/v1/getAllAccounts - Show All Accounts from DB
+
+
+```shell
+curl -X POST \
+  http://localhost:8081/accounts/v1/syncAccounts \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: 0b435d3e-5643-9b44-b1a7-4c8def4dbfa9'
+  
+curl -X GET \
+  http://localhost:8081/accounts/v1/getAllAccounts \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: f8b55f79-af93-3a1e-793e-b020be4b94a3'
+  
+curl -X GET \
+  'http://localhost:8081/accounts/v1/getAccountsForUser?username=Gigi' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: ff725896-4766-1051-5502-6b6b247b9a48'
+```
+Not Completed
+http://localhost:8081/transactions/v1/syncTransactions -  Only for TEST to fill DB with provider accounts
+http://localhost:8081/transactions/v1/getAllTransactions - Get all Transactions from local DB for all accounts
+
+```shell
+curl -X POST \
+  http://localhost:8081/transactions/v1/syncTransactions \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: c40be8bf-a7a8-cbcd-61d4-691dd0490b77'
+
+curl -X GET \
+  http://localhost:8081/transactions/v1/getAllTransactions \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: 740b3ee7-4524-67e9-dec0-7bab86c6d296'
+```
+
+
 ## Improvements
 * Add Spring Security on exposed endpoints - Spring Security module can be used (Basic Authentication, OAUth etc.).
 * Consider using a No-SQL database engine depending non functional requirements.

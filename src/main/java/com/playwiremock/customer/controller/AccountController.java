@@ -33,7 +33,7 @@ public class AccountController {
 
 	@GetMapping(path = "/v1/getAccountsForUser")
 	public ResponseEntity<List<Account>> getAllAccounts(@RequestParam("username") String username) {
-		List<Account> accountList = accountService.getAllAccounts(username);
+		List<Account> accountList = accountService.getAllAccounts("Account-" + username);
 		return new ResponseEntity<>(accountList, HttpStatus.OK);
 	}
 
