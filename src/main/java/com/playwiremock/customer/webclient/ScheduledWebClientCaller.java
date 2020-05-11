@@ -3,7 +3,6 @@ package com.playwiremock.customer.webclient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
@@ -30,7 +29,7 @@ public class ScheduledWebClientCaller {
 
 	@Scheduled(cron = "0 0 2 * * *")
 	public void scheduledCallAccountsAPI() {
-		logger.info("Fixed rate async async accounts started");
+		logger.info("Calling schedule accounts API started");
 		String authorizationToken = ProviderWebClient.getAuthToken("Gigi").getToken();
 
 		Flux<Account> responseAccounts = ProviderWebClient.builder().get().uri("/accounts")
@@ -43,7 +42,7 @@ public class ScheduledWebClientCaller {
 	 */
 	@Scheduled(cron = "0 0 3 * * ?")
 	public void scheduledCallTransactionsAPI() {
-		logger.info("Fixed rate task async transactions started");
+		logger.info("Calling schedule transactions API started");
 		String authorizationToken = ProviderWebClient.getAuthToken("Gigi").getToken();
 
 		Flux<Transaction> responseTransactions = ProviderWebClient.builder().get().uri("/transactions")
