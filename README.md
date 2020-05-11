@@ -8,7 +8,7 @@ More documentation here and how to run it: https://hub.docker.com/repository/doc
 docker run -it --rm -p 8080:8080 mihaitatinta/wiremock-example
 ```
 
-##Requirements:
+## Requirements 
 
 You need to create 2 endpoints to expose accounts and transactions from your local application storage (anything you want - the faster, the better)
 The accounts and transactions need to be updated 1 time per day in your application.
@@ -20,7 +20,7 @@ Pushed to github/gitlab or similar.
 Spring boot/Java 8+ are recommended but not mandatory
 If you can't run Docker on your machine, you can run your own wiremock server from here: https://hub.docker.com/repository/docker/mihaitatinta/wiremock-example
 
-##Tools and 
+## Tools, frameworks and libraries used
 
 * [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org)
@@ -42,13 +42,13 @@ or clone from Eclipse STS ->`Import Project from Git` -> `Clone URI` -> Enter ab
 
 2. Project -> Right Click -> `Run as` -> `Spring Boot app`.
 
-Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
+Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html):
 
 ```shell
 mvn spring-boot:run
 ```
 
-#Improvements
+## Improvements
 * Add Spring Security on exposed endpoints - Spring Security module can be used (Basic Authentication, OAUth etc.).
 * Consider using a No-SQL database engine depending non functional requirements.
 * Refactor more the classes, separate better the layers and project dependencies to become lighter - get rid of modules not used.
